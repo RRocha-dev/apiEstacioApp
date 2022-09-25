@@ -22,7 +22,7 @@ import java.util.Date;
 
 public class JWTAuthenticateFilter extends UsernamePasswordAuthenticationFilter {
 
-    public static final int TOKEN_EXPIRATION = Duration.ofMinutes(60).toMillisPart();
+    public static final int TOKEN_EXPIRATION = Duration.ofHours(24).toMillisPart();
     private final AuthenticationManager authenticationManager;
 
     public static final String TOKEN_PASSWORD = "142645b4-e0f3-4fae-911f-2ec17b0ed169";
