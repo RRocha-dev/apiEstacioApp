@@ -25,7 +25,11 @@ public class JWTValidatorFilter extends BasicAuthenticationFilter {
                                     FilterChain chain) throws IOException, ServletException {
 
         String attribute = request.getHeader(HEADER_ATTRIBUTE);
-        if (attribute == null && !attribute.startsWith(PREFIX_ATTRIBUTE)) {
+        if (attribute == null) {
+            chain.doFilter(request, response);
+            return;
+        }
+        if (!attribute.startsWith(PREFIX_ATTRIBUTE)) {
             chain.doFilter(request, response);
             return;
         }

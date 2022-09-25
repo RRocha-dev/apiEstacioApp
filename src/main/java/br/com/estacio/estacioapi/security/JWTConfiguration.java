@@ -18,6 +18,10 @@ public class JWTConfiguration extends WebSecurityConfigurerAdapter {
 
     private final DetailUserServiceImpl userService;
     private final PasswordEncoder encoder;
+    public static final String[] FREE_ENDPOINTS = {
+            "/login",
+            "/api/user/save"
+    };
 
     public JWTConfiguration(DetailUserServiceImpl userService, PasswordEncoder encoder) {
         this.userService = userService;
@@ -32,7 +36,7 @@ public class JWTConfiguration extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.csrf().disable().authorizeRequests()
-                .antMatchers(HttpMethod.POST, "/login").permitAll()
+                .antMatchers(HttpMethod.POST, FREE_ENDPOINTS).permitAll()
                 .anyRequest().authenticated()
                 .and()
                 .addFilter(new JWTAuthenticateFilter(authenticationManager()))
