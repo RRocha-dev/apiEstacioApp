@@ -8,6 +8,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Getter
@@ -22,4 +23,7 @@ public class UserEntity {
     private String userEmail;
     @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private String userPassword;
+
+    @OneToMany(mappedBy = "userEntity")
+    private List<CalledEntity> calledEntityList;
 }
