@@ -26,7 +26,7 @@ public class CalledController {
         return ResponseEntity.ok().body("Nenhum chamado cadastrado até o momento!");
     }
 
-    @PostMapping("/save/")
+    @PostMapping("/save")
     @Transactional
     public ResponseEntity<?> save(@RequestBody CalledEntity entity) {
         try {
