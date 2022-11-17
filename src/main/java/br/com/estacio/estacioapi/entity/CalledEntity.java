@@ -28,6 +28,6 @@ public class CalledEntity {
     private Integer userCode;
     @JsonIgnore
     @ManyToOne
-    @JoinColumn(name = "user_entity")
+    @JoinColumn(name = "user_entity", insertable = false, updatable = false)
     private UserEntity userEntity;
 }

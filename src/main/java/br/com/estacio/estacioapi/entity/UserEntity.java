@@ -24,6 +24,7 @@ public class UserEntity {
     @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private String userPassword;
 
+    @JsonIgnore
     @OneToMany(mappedBy = "userEntity")
     private List<CalledEntity> calledEntityList;
 }
