@@ -11,7 +11,7 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="EstacioAPI" target="17" />
+      <module name="EstacioAPI" target="11" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
